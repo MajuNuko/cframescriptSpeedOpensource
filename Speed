@@ -1,0 +1,19 @@
+local player = game.Players.LocalPlayer
+local humanoid = player.Character.Humanoid
+
+local baseWalkSpeed = 40
+
+local function updateWalkSpeed()
+    if humanoid.MoveDirection.magnitude > 0 then
+        if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) then
+            humanoid.WalkSpeed = baseWalkSpeed * 2
+        else
+            humanoid.WalkSpeed = baseWalkSpeed
+        end
+    end
+end
+
+while true do
+    updateWalkSpeed()
+    wait(0)
+end
